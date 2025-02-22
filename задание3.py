@@ -22,9 +22,12 @@ def eq(V):
 
 
 
-V = 3*(10**(-5))
+V = 4*(10**(-5))
 while V < 0.00018:
-    V =V + b
+    V =V + 1e-7
+    # t = ((+(R*T)/((V+b) - b) - (a/((V+b)**2))  -(R*T)/(V - b) - (a/(V**2))))/b
+    # if t>0:
+    #     maxmin.append(eq(V))
     lst_y.append(eq(V))
     lst_x.append(V)
 
@@ -42,10 +45,10 @@ for i in lst_y:
 
 
 L = 0
-V = min_x
-while V < max_x:
+V = 4.0100000000000006e-05
+while V < 7.190000000000077e-05:
     V = V + b
-    L = L + math.sqrt((-(R*T)/((V+b) - b) - (a/((V+b)**2)))**2 -(R*T)/(V - b) - (a/(V**2)))
+    L = L + math.sqrt((eq(V+(1e-7)) - eq(V))**2 + (1e-7)**2)
 
 plt.plot(lst_x,lst_y)
 plt.show()
