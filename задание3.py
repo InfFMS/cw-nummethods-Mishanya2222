@@ -55,5 +55,3 @@ plt.show()
 
 print(L)
 
-
-
