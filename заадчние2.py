@@ -8,15 +8,15 @@ R = 8.31
 #[P + a (n2/V2)] (V - nb) = nRT
 a = 0.1382
 b = 3.19*10**(-5)
-T = -133
+T = 143.15
 maxmin = []
 def eq(V):
-    P = -(R*T)/(V - b) - (a/(V**2))
+    P = (R*T)/(V - b) - (a/(V**2))
     return P
 
 
-V = 2.15*(10**(-5))
-while V < 0.0004:
+V = 3*(10**(-5))
+while V < 0.00018:
     V =V + b
     # t = ((+(R*T)/((V+b) - b) - (a/((V+b)**2))  -(R*T)/(V - b) - (a/(V**2))))/b
     # if t>0:
@@ -34,7 +34,6 @@ for i in lst_y:
     if i < min_y:
         min_y = i
         min_x = lst_x[num]
-
     num = num + 1
 
 print(min_x,max_x)
